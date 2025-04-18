@@ -1,8 +1,10 @@
 # Dependencies
 node_modules/
+.next/
 
 # Environment variables
 .env
+.env.local
 
 # Generated files
 dist/
@@ -20,3 +22,7 @@ yarn-error.log*
 # OS files
 .DS_Store
 Thumbs.db
+
+# next.js
+/.next/
+/out/

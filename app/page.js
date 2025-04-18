@@ -3,10 +3,10 @@
 import { useState } from 'react';
 
 export default function Home() {
-  const [items, setItems] = useState([{ name: '', price: '' }]);
+  const [items, setItems] = useState([{ name: '', price: '', quantity: '' }]);
 
   const addItem = () => {
-    setItems([...items, { name: '', price: '' }]);
+    setItems([...items, { name: '', price: '', quantity: '' }]);
   };
 
   const handleChange = (index, field, value) => {
@@ -22,6 +22,7 @@ export default function Home() {
       date: e.target.date.value,
       itemName: items.map(i => i.name),
       itemPrice: items.map(i => i.price),
+      itemQuantity: items.map(i => i.quantity),
       format: e.target.format.value,
     };
 
@@ -62,6 +63,13 @@ export default function Home() {
               step="0.01"
               value={item.price}
               onChange={(e) => handleChange(i, 'price', e.target.value)}
+              required
+            />
+            <input
+              placeholder="Quantity"
+              type="number"
+              value={item.quantity}
+              onChange={(e) => handleChange(i, 'quantity', e.target.value)}
               required
             />
           </div>
