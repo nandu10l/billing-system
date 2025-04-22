@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="items-container">
+        <div class="item">
+            <h6>name?</h6><input type="text" class="name">
+            <h6>cost/unit?</h6><input type="number" class="cost" step="0.01">
+            <h6>number?</h6><input type="number" class="quantity"><br>
+        </div>
+    </div>
+    
+    <button id="more">enter another item?</button>
+    
+    <h6>pdf?</h6><input type="radio" name="choice" value="0">
+    <h6>jpg?</h6><input type="radio" name="choice" value="1">
+    <button id="generate">generate bill</button>
+
+    <script>
+        document.getElementById('more').addEventListener('click', function() {
+            const container = document.getElementById('items-container');
+            const newItem = document.createElement('div');
+            newItem.className = 'item';
+            newItem.innerHTML = `
+                <h6>name?</h6><input type="text" class="name">
+                <h6>cost/unit?</h6><input type="number" class="cost" step="0.01">
+                <h6>number?</h6><input type="number" class="quantity"><br>
+            `;
+            container.appendChild(newItem);
+        });
+
+        document.getElementById('generate').addEventListener('click', function() {
+            const items = document.getElementsByClassName('item');
+            const data = {
+                items: [],
+                choice: document.querySelector('input[name="choice"]:checked')?.value || 0
+            };
+
+            Array.from(items).forEach((item, index) => {
+                const itemData = {
+                    [`n${index + 1}`]: item.querySelector('.name').value,
+                    [`c${index + 1}`]: parseFloat(item.querySelector('.cost').value),
+                    [`q${index + 1}`]: parseInt(item.querySelector('.quantity').value)
+                };
+                data.items.push(itemData);
+            });
+
+            console.log(data); // For testing
+            return data; // This can be used to send to backend
+        });
+    </script>
+</body>
+</html>
