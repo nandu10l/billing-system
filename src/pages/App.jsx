@@ -17,11 +17,11 @@ function App() {
       <div style={{ position: 'relative', zIndex: 1 }}>
         <Routes>
           
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/generate-bill" element={<GenerateBill />} />
           <Route path="/history" element={<History />} />
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </Router>
