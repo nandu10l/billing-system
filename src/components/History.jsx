@@ -26,7 +26,7 @@ function History() {
         zIndex: 999  // Increased z-index to ensure it stays on top
       }}>
         <Link 
-          to="/" 
+          to="/dashboard" 
           className="back-home-button" 
           style={{
             padding: "12px 20px",
