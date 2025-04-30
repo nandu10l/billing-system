@@ -181,7 +181,7 @@ function GenerateBill() {
         padding: '20px'
       }}>
         <Link 
-          to="/" 
+          to="/dashboard" 
           className="back-home-button"
           style={{
             padding: '12px 24px',
