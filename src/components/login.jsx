@@ -14,7 +14,7 @@ function Login() {
       alert('Please enter both email and password.');
     } else {
       // Redirect to GenerateBill page
-      navigate('/');
+      navigate('/dashboard');
     }
   };
 
